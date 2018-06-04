@@ -1,0 +1,45 @@
+﻿@using WebApplication7.Shared
+@page "/npcs"
+@inject HttpClient Http
+
+<h1>Non-Player Characters</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (collection == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Level</th>
+                <th>Name</th>
+                <th>Race (Class)</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pc in collection)
+            {
+                <tr>
+                    <td>@pc.Level</td>
+                    <td>@pc.Name</td>
+                    <td>@pc.Race (@pc.Class)</td>
+                    <td>@pc.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@functions {
+    NPC[] collection;
+
+    protected override async Task OnInitAsync()
+    {
+        collection = await Http.GetJsonAsync<NPC[]>("/api/SampleData/NPCs");
+    }
+}
