@@ -6,6 +6,24 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
+<BlazorButton Color="Color.Primary" OnClick="@onclick">Launch demo modal</BlazorButton>
+<Modal IsOpen="@IsOpen">
+    <ModalHeader OnClick="@onclick">Modal title</ModalHeader>
+    <ModalBody><p>Modal body text goes here.</p></ModalBody>
+    <ModalFooter>
+        <BlazorButton Color="Color.Secondary" OnClick="@onclick">Close</BlazorButton>
+        <BlazorButton Color="Color.Primary" OnClick="@onclick">Save Changes</BlazorButton>
+    </ModalFooter>
+</Modal>
+@functions {
+bool IsOpen { get; set; }
+void onclick(UIMouseEventArgs e)
+{
+    IsOpen = !IsOpen;
+    StateHasChanged();
+}
+}
+
 @if (pcs == null)
 {
     <p><em>Loading...</em></p>
@@ -19,6 +37,7 @@ else
                 <th>Name (Player)</th>
                 <th>Race (Class)</th>
                 <th>Status</th>
+                <td></td>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +48,7 @@ else
                     <td>@pc.Name (@pc.Player)</td>
                     <td>@pc.Race (@pc.Class)</td>
                     <td>@pc.Status</td>
+                    <td></td>
                 </tr>
             }
         </tbody>

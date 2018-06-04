@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BlazorStrap\BlazorStrap.csproj" />
     <ProjectReference Include="..\WebApplication7.Shared\WebApplication7.Shared.csproj" />
   </ItemGroup>
 
