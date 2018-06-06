@@ -7,5 +7,6 @@
         string Name { get; set; }
         Race Race { get; set; }
         Status Status { get; set; }
+        string Description { get; set; }
     }
 }
