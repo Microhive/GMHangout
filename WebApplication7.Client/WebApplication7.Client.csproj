@@ -27,4 +27,12 @@
     <BlazorGenerate Remove="Pages\PCs.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\Quests.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\Calendar.cshtml" />
+  </ItemGroup>
+
 </Project>
